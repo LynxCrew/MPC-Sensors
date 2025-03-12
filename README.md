@@ -23,6 +23,14 @@ primary_branch: main
 install_script: scripts/install.sh
 ```
 
+also add
+```
+[mpc_block_temperature]
+
+[mpc_ambient_temperature]
+```
+to your printer config to actually load the modules
+
 ## Config reference:
 ```
 [temperature_sensor Block_Temperature]
