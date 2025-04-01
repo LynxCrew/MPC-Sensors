@@ -44,7 +44,7 @@ class MPC_BLOCK_TEMP_WRAPPER:
     def get_report_time_delta(self):
         return self.report_time
 
-    def _sample_block_temperature(self):
+    def _sample_block_temperature(self, eventtime):
         if self.heater.get_control().get_type() == "mpc":
             self.temp = self.heater.get_control().state_block_temp
         else:
