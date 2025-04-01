@@ -52,7 +52,7 @@ class MPC_AMBIENT_TEMP_WRAPPER:
             self.temp = heaters.AMBIENT_TEMP
 
         if self.temp is not None:
-            if not self.ignore:
+            if (self.temp < self.min_temp or self.temp > self.max_temp) and not self.ignore:
                 self.printer.invoke_shutdown(
                     "Ambient MPC %s\nTemperature %0.1f outside range of %0.1f-%.01f"
                     % (self.name, self.temp, self.min_temp, self.max_temp)

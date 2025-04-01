@@ -51,17 +51,16 @@ class MPC_BLOCK_TEMP_WRAPPER:
             self.temp = self.heater.smoothed_temp
 
         if self.temp is not None:
-            if self.temp is not None:
-                if not self.ignore:
-                    self.printer.invoke_shutdown(
-                        "MPC Heater Block %s\nTemperature %0.1f outside range of %0.1f-%.01f"
-                        % (
-                            self.name,
-                            self.temp,
-                            self.min_temp,
-                            self.max_temp,
-                        )
+            if (self.temp < self.min_temp or self.temp > self.max_temp) and not self.ignore:
+                self.printer.invoke_shutdown(
+                    "MPC Heater Block %s\nTemperature %0.1f outside range of %0.1f-%.01f"
+                    % (
+                        self.name,
+                        self.temp,
+                        self.min_temp,
+                        self.max_temp,
                     )
+                )
         else:
             self.temp = 0.0
 
