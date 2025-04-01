@@ -29,7 +29,7 @@ also add
 
 [mpc_ambient_temperature]
 ```
-to your printer config to actually load the modules
+to your printer config to actually load the modules (this has to be before registering the sensors, otherwise it wont work due to how klipper reads configs)
 
 ## Config reference:
 ```
